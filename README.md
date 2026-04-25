@@ -1,6 +1,6 @@
 # Stock Embeddings for Pairs Trading
 
-Transformer embeddings → cosine pair selection → Engle–Granger / Johansen baselines → OOS backtest → CSV/PNG under `--output-dir`.
+Transformer embeddings → cosine pair selection → Engle–Granger / Johansen baselines → OOS backtest → CSV/PNG under `--output-dir`. The 611-stock return matrix is in **`data/returns_df_611.csv`** (bundled in this repo).
 
 ## Setup
 
@@ -51,7 +51,7 @@ python3 src/main.py \
   --output-dir outputs/yfinance_2015_2018
 
 python3 src/main.py \
-  --returns-csv "/Users/sweety/Downloads/embedding_data_files/Data/returns_df_611.csv" \
+  --returns-csv "data/returns_df_611.csv" \
   --tickers "$TICKERS" \
   --start-date "$START" --end-date "$END" --train-end-date "$TRAIN_END" \
   --window-size 30 --epochs 4 --top-k-pairs 5 \
@@ -69,7 +69,7 @@ Use the **same** `--baseline-method` and `--objective` on both if you want the s
 
 ```bash
 python3 src/main.py \
-  --returns-csv "/path/to/returns_df_611.csv" \
+  --returns-csv "data/returns_df_611.csv" \
   --start-date 2000-01-01 --end-date 2018-12-31 --train-end-date 2014-12-31 \
   --window-size 30 --epochs 4 --top-k-pairs 5 \
   --baseline-method engle --objective mse \
